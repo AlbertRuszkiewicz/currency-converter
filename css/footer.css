@@ -1,0 +1,11 @@
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 12px 0px;
+    background-color: #e9d89b;
+    border-radius: 5px;
+}
+
+.footer__paragraph {
+    margin: 0;
+}

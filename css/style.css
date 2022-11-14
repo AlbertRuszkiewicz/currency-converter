@@ -1,0 +1,19 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+    box-sizing: inherit;
+}
+
+.body {
+    background-color: #f5e9c159;
+    font-family: 'Oxygen', sans-serif;
+    line-height: 1.5;
+    width: 100%;
+    max-width: 375px;
+    margin: auto;
+    padding: 10px;
+}

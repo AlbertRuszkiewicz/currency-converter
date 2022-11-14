@@ -1,0 +1,11 @@
+.header {
+    background-color: #e9d89b;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+
+}
+
+.header__title {
+    margin: 0px;
+}
