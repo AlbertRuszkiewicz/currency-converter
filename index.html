@@ -16,55 +16,58 @@
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/header.css" rel="stylesheet">
     <link href="css/currencyCalc.css" rel="stylesheet">
+    <link href="css/container.css" rel="stylesheet">
 
     <title>Konwerter Walut</title>
-    <link rel="icon" href="images\icon.png">
-    <meta property="og:image" content="images\share.png">
+    <link rel="icon" href="images/icon.png">
+    <meta property="og:image" content="images/share.png">
 </head>
 
 <body class="body">
-    <header class="header">
-        <h1 class="header__title">Kalkulator Walut</h1>
-    </header>
-    <main>
-        <form class="currencyCalc">
-            <fieldset class="currencyCalc__fieldset">
-                <legend class="currencyCalc__legend">Przelicznik na <span class="js-currencyFullName">Euro</span>
-                </legend>
-                <p>
-                    <label>
-                        <span class="currencyCalc__labelText">Kwota w PLN</span> <input
-                            class="currencyCalc__field js-plnAmount" type="number" min="1" step="any">
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        <span class="currencyCalc__labelText">Kurs</span>
-                        <select class="currencyCalc__field js-exchange">
-                            <option id="EUR">EUR 4.70</option>
-                            <option id="USD">USD 4.70</option>
-                            <option id="UAH">UAH 0.13</option>
-                            <option id="GBP">GBP 5.43</option>
-                            <option id="CHF">CHF 4.78</option>
-                        </select>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        <span class="currencyCalc__labelText">Kwota w <span
-                                class="js-currencyShortName">EUR</span></span> <input
-                            class="currencyCalc__field js-currencyAmount" type="number" min="1" step="any">
-                    </label>
-                </p>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__title">Kalkulator Walut</h1>
+        </header>
+        <main>
+            <form class="currencyCalc">
+                <fieldset class="currencyCalc__fieldset">
+                    <legend class="currencyCalc__legend">Przelicznik na <span class="js-currencyFullName">Euro</span>
+                    </legend>
+                    <p>
+                        <label>
+                            <span class="currencyCalc__labelText">Kwota w PLN</span> <input
+                                class="currencyCalc__field js-plnAmount" type="number" min="1" step="any">
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <span class="currencyCalc__labelText">Kurs</span>
+                            <select class="currencyCalc__field js-exchange">
+                                <option id="EUR">EUR 4.70</option>
+                                <option id="USD">USD 4.70</option>
+                                <option id="UAH">UAH 0.13</option>
+                                <option id="GBP">GBP 5.43</option>
+                                <option id="CHF">CHF 4.78</option>
+                            </select>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <span class="currencyCalc__labelText">Kwota w <span
+                                    class="js-currencyShortName">EUR</span></span> <input
+                                class="currencyCalc__field js-currencyAmount" type="number" min="1" step="any">
+                        </label>
+                    </p>
 
-            </fieldset>
-        </form>
-    </main>
-    <footer class="footer">
-        <p class="footer__paragraph">
-            Copyright Lorem ipsum dolor sit amet
-        </p>
-    </footer>
+                </fieldset>
+            </form>
+        </main>
+        <footer class="footer">
+            <p class="footer__paragraph">
+                Copyright Lorem ipsum dolor sit amet
+            </p>
+        </footer>
+    </div>
 </body>
 
 </html>

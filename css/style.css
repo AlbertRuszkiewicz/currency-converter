@@ -9,7 +9,7 @@ html {
 }
 
 .body {
-    background-color: #f5e9c159;
+    background-image: url("../images/background-money.png");
     font-family: 'Oxygen', sans-serif;
     line-height: 1.5;
     width: 100%;
