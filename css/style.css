@@ -16,4 +16,6 @@ html {
     max-width: 375px;
     margin: auto;
     padding: 10px;
+    display: flex;
+    justify-content: center;
 }
