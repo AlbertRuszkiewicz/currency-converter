@@ -13,26 +13,22 @@
         const currencyName = exchangeElement.value.slice(0, 3);
         switch (currencyName) {
             case "USD":
-                currencyShortNameElement.innerText = currencyName;
                 currencyFullNameElement.innerText = "Dolara amerykańskiego";
                 break;
             case "UAH":
-                currencyShortNameElement.innerText = currencyName;
                 currencyFullNameElement.innerText = "Hrywny";
                 break;
             case "GBP":
-                currencyShortNameElement.innerText = currencyName;
                 currencyFullNameElement.innerText = "Funta brytyjskiego";
                 break;
             case "CHF":
-                currencyShortNameElement.innerText = currencyName;
                 currencyFullNameElement.innerText = "Franka Szwajcarskiego";
                 break;
             default:
-                currencyShortNameElement.innerText = currencyName;
                 currencyFullNameElement.innerText = "Euro";
                 break;
         };
+        currencyShortNameElement.innerText = currencyName;
     };
     const init = () => {
         console.log("Hello Dev");
