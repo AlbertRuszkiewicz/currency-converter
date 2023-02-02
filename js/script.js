@@ -1,11 +1,12 @@
 {
+    const getExchange = (exchangeElement) => {
+        return +exchangeElement.value.slice(4);
+    }
     const currencyAmountCalc = (plnAmountElement, exchangeElement) => {
-        const exchange = +exchangeElement.value.slice(4);
-        return (plnAmountElement.value / exchange).toFixed(2);
+        return (plnAmountElement.value / getExchange(exchangeElement)).toFixed(2);
     };
     const plnAmountCalc = (currencyAmountElement, exchangeElement) => {
-        const exchange = +exchangeElement.value.slice(4);
-        return (currencyAmountElement.value * exchange).toFixed(2);
+        return (currencyAmountElement.value * getExchange(exchangeElement)).toFixed(2);
     };
     const exchangeModification = (exchangeElement) => {
         let currencyFullNameElement = document.querySelector(".js-currencyFullName");
@@ -37,9 +38,18 @@
         const exchangeElement = document.querySelector(".js-exchange");
         let plnAmountElement = document.querySelector(".js-plnAmount");
 
-        exchangeElement.addEventListener("input", () => { exchangeModification(exchangeElement); currencyAmountElement.value = currencyAmountCalc(plnAmountElement, exchangeElement); });
-        plnAmountElement.addEventListener("input", () => { currencyAmountElement.value = currencyAmountCalc(plnAmountElement, exchangeElement) });
-        currencyAmountElement.addEventListener("input", () => { plnAmountElement.value = plnAmountCalc(currencyAmountElement, exchangeElement) });
+        exchangeElement.addEventListener("input", () => {
+            exchangeModification(exchangeElement);
+            currencyAmountElement.value = currencyAmountCalc(plnAmountElement, exchangeElement);
+        });
+
+        plnAmountElement.addEventListener("input", () => {
+            currencyAmountElement.value = currencyAmountCalc(plnAmountElement, exchangeElement)
+        });
+
+        currencyAmountElement.addEventListener("input", () => {
+            plnAmountElement.value = plnAmountCalc(currencyAmountElement, exchangeElement)
+        });
     };
     init();
 }
