@@ -1,14 +1,11 @@
 {
-    const getExchange = (exchangeElement) => {
-        return +exchangeElement.value.slice(4);
-    }
-    const currencyAmountCalc = (plnAmountElement, exchangeElement) => {
-        return (plnAmountElement.value / getExchange(exchangeElement)).toFixed(2);
-    };
-    const plnAmountCalc = (currencyAmountElement, exchangeElement) => {
-        return (currencyAmountElement.value * getExchange(exchangeElement)).toFixed(2);
-    };
-    const exchangeModification = (exchangeElement) => {
+    const getExchange = (exchangeElement) => +exchangeElement.value.slice(4);
+
+    const currencyAmountCalc = (plnAmountElement, exchangeElement) => (plnAmountElement.value / getExchange(exchangeElement)).toFixed(2);
+
+    const plnAmountCalc = (currencyAmountElement, exchangeElement) => (currencyAmountElement.value * getExchange(exchangeElement)).toFixed(2);
+
+    const exchangeNameChange = (exchangeElement) => {
         let currencyFullNameElement = document.querySelector(".js-currencyFullName");
         let currencyShortNameElement = document.querySelector(".js-currencyShortName");
         const currencyName = exchangeElement.value.slice(0, 3);
@@ -31,6 +28,25 @@
         };
         currencyShortNameElement.innerText = currencyName;
     };
+    const exchangeModification = (currencyAmountElement, exchangeElement, plnAmountElement) => {
+        exchangeElement.addEventListener("input", () => {
+            exchangeNameChange(exchangeElement);
+            currencyAmountElement.value = (plnAmountElement.value >= 0) ? currencyAmountCalc(plnAmountElement, exchangeElement) : "";
+        });
+    }
+
+    const currencyAmountModification = (currencyAmountElement, exchangeElement, plnAmountElement) => {
+        currencyAmountElement.addEventListener("input", () => {
+            plnAmountElement.value = (plnAmountElement.value >= 0) ? plnAmountCalc(currencyAmountElement, exchangeElement) : "";
+        });
+    }
+
+    const plnAmountModification = (currencyAmountElement, exchangeElement, plnAmountElement) => {
+        plnAmountElement.addEventListener("input", () => {
+            currencyAmountElement.value = (plnAmountElement.value >= 0) ? currencyAmountCalc(plnAmountElement, exchangeElement) : "";
+        });
+    }
+
     const init = () => {
         console.log("Hello Dev");
 
@@ -38,18 +54,9 @@
         const exchangeElement = document.querySelector(".js-exchange");
         let plnAmountElement = document.querySelector(".js-plnAmount");
 
-        exchangeElement.addEventListener("input", () => {
-            exchangeModification(exchangeElement);
-            currencyAmountElement.value = currencyAmountCalc(plnAmountElement, exchangeElement);
-        });
-
-        plnAmountElement.addEventListener("input", () => {
-            currencyAmountElement.value = currencyAmountCalc(plnAmountElement, exchangeElement)
-        });
-
-        currencyAmountElement.addEventListener("input", () => {
-            plnAmountElement.value = plnAmountCalc(currencyAmountElement, exchangeElement)
-        });
+        exchangeModification(currencyAmountElement, exchangeElement, plnAmountElement);
+        plnAmountModification(currencyAmountElement, exchangeElement, plnAmountElement);
+        currencyAmountModification(currencyAmountElement, exchangeElement, plnAmountElement);
     };
     init();
 }
